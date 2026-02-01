@@ -1,0 +1,51 @@
+model Mosque {
+    id         String       @id @default(uuid())
+    publicCode String       @unique
+    name       String
+    mosqueType MosqueType
+    status     MosqueStatus @default(PENDING)
+
+    districtId String
+    thanaId    String
+    district   District @relation(fields: [districtId], references: [id])
+    thana      Thana    @relation(fields: [thanaId], references: [id])
+
+    ward        String?
+    village     String?
+    addressLine String?
+    notes       String?
+
+    memberships    MosqueMembership[]
+    applications   MosqueApplication[]
+    accessRequests MosqueAccessRequest[]
+
+    createdById String?
+    createdBy   User?   @relation("MosqueCreatedBy", fields: [createdById], references: [id])
+
+    updatedById String?
+    updatedBy   User?   @relation("MosqueUpdatedBy", fields: [updatedById], references: [id])
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model MosqueApplication {
+    id          String @id @default(uuid())
+    applicantId String
+    applicant   User   @relation(fields: [applicantId], references: [id])
+
+    mosqueId String
+    mosque   Mosque @relation(fields: [mosqueId], references: [id])
+
+    status       MosqueStatus @default(PENDING)
+    rejectReason String?
+
+    reviewedById String?
+    reviewedBy   User?     @relation("MosqueAppReviewedBy", fields: [reviewedById], references: [id])
+    reviewedAt   DateTime?
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@unique([applicantId, mosqueId])
+}

@@ -1,0 +1,10 @@
+model AuditLog {
+    id        String   @id @default(uuid())
+    mosqueId  String?
+    userId    String?
+    action    String
+    entity    String
+    entityId  String?
+    meta      Json?
+    createdAt DateTime @default(now())
+}

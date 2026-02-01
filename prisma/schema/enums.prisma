@@ -1,0 +1,28 @@
+enum GlobalRole {
+  SUPER_ADMIN
+  USER
+}
+
+enum MosqueStatus {
+  PENDING
+  ACTIVE
+  REJECTED
+}
+
+enum MosqueType {
+  JAME
+  WAQTIYA
+}
+
+enum MosqueRole {
+  MOSQUE_ADMIN
+  EDITOR
+  VIEWER
+}
+
+enum RequestStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  CANCELLED
+}

@@ -1,0 +1,43 @@
+model MosqueMembership {
+  id       String     @id @default(uuid())
+  userId   String
+  mosqueId String
+  role     MosqueRole @default(VIEWER)
+  isActive Boolean    @default(true)
+
+  user   User   @relation(fields: [userId], references: [id])
+  mosque Mosque @relation(fields: [mosqueId], references: [id])
+
+  createdById String?
+  createdBy   User? @relation("MembershipCreatedBy", fields: [createdById], references: [id])
+
+  updatedById String?
+  updatedBy   User? @relation("MembershipUpdatedBy", fields: [updatedById], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, mosqueId])
+}
+
+model MosqueAccessRequest {
+  id           String        @id @default(uuid())
+  userId       String
+  mosqueId     String
+  status       RequestStatus @default(PENDING)
+  rejectReason String?
+
+  approvedRole MosqueRole?
+
+  reviewedById String?
+  reviewedBy   User? @relation("AccessReviewedBy", fields: [reviewedById], references: [id])
+  reviewedAt   DateTime?
+
+  user   User   @relation(fields: [userId], references: [id])
+  mosque Mosque @relation(fields: [mosqueId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, mosqueId, status])
+}

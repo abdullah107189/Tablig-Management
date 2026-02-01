@@ -1,0 +1,27 @@
+model User {
+  id         String     @id @default(uuid())
+  name       String
+  phone      String     @unique
+  email      String?    @unique
+  password   String
+  globalRole GlobalRole @default(USER)
+  isActive   Boolean    @default(true)
+
+  // direct relations
+  memberships      MosqueMembership[]
+  applications     MosqueApplication[]
+  accessRequests   MosqueAccessRequest[]
+
+  // opposite relations for audit/review
+  createdMosques        Mosque[] @relation("MosqueCreatedBy")
+  updatedMosques        Mosque[] @relation("MosqueUpdatedBy")
+
+  reviewedApplications  MosqueApplication[] @relation("MosqueAppReviewedBy")
+  reviewedAccessRequests MosqueAccessRequest[] @relation("AccessReviewedBy")
+
+  createdMemberships    MosqueMembership[] @relation("MembershipCreatedBy")
+  updatedMemberships    MosqueMembership[] @relation("MembershipUpdatedBy")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

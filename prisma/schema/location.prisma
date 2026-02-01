@@ -1,0 +1,22 @@
+model District {
+  id        String   @id @default(uuid())
+  name      String   @unique
+
+  thanas    Thana[]
+  mosques   Mosque[]   // ✅ opposite relation added
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+model Thana {
+  id         String   @id @default(uuid())
+  name       String
+  districtId String
+  district   District @relation(fields: [districtId], references: [id])
+
+  mosques    Mosque[]   // ✅ opposite relation added
+
+  @@unique([districtId, name])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
