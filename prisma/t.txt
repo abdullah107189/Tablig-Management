@@ -1,8 +1,0 @@
-└── schema/
-      ├── schema.prisma      
-      ├── enums.prisma       
-      ├── location.prisma    
-      ├── user.prisma        
-      ├── mosque.prisma      
-      ├── membership.prisma  
-      └── audit.prisma

@@ -1,0 +1,49 @@
+src/
+├── app.ts
+├── server.ts
+├── config/
+│   └── env.ts
+├── prisma/
+│   └── client.ts
+├── middlewares/
+│   ├── validateRequest.ts
+│   ├── globalErrorHandler.ts
+│   └── notFound.ts
+├── shared/
+│   ├── catchAsync.ts
+│   ├── sendResponse.ts
+│   ├── logger.ts
+│   └── requestLogger.ts
+├── routes/
+│   └── index.ts
+└── modules/
+    ├── auth/
+    │   ├── auth.route.ts
+    │   ├── auth.controller.ts
+    │   ├── auth.service.ts
+    │   ├── auth.repository.ts
+    │   └── auth.validation.ts
+    ├── mosques/
+    │   ├── mosque.route.ts
+    │   ├── mosque.controller.ts
+    │   ├── mosque.service.ts
+    │   ├── mosque.repository.ts
+    │   └── mosque.validation.ts
+    ├── super-admin/
+    │   ├── mosqueApplication.route.ts
+    │   ├── mosqueApplication.controller.ts
+    │   ├── mosqueApplication.service.ts
+    │   ├── mosqueApplication.repository.ts
+    │   └── mosqueApplication.validation.ts
+    ├── settings/
+    │   ├── membership.route.ts
+    │   ├── membership.controller.ts
+    │   ├── membership.service.ts
+    │   ├── membership.repository.ts
+    │   └── membership.validation.ts
+    └── location/
+        ├── location.route.ts
+        ├── location.controller.ts
+        ├── location.service.ts
+        ├── location.repository.ts
+        └── location.validation.ts

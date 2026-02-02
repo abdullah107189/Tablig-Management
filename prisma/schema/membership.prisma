@@ -9,10 +9,10 @@ model MosqueMembership {
   mosque Mosque @relation(fields: [mosqueId], references: [id])
 
   createdById String?
-  createdBy   User? @relation("MembershipCreatedBy", fields: [createdById], references: [id])
+  createdBy   User?   @relation("MembershipCreatedBy", fields: [createdById], references: [id])
 
   updatedById String?
-  updatedBy   User? @relation("MembershipUpdatedBy", fields: [updatedById], references: [id])
+  updatedBy   User?   @relation("MembershipUpdatedBy", fields: [updatedById], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -30,7 +30,7 @@ model MosqueAccessRequest {
   approvedRole MosqueRole?
 
   reviewedById String?
-  reviewedBy   User? @relation("AccessReviewedBy", fields: [reviewedById], references: [id])
+  reviewedBy   User?     @relation("AccessReviewedBy", fields: [reviewedById], references: [id])
   reviewedAt   DateTime?
 
   user   User   @relation(fields: [userId], references: [id])
