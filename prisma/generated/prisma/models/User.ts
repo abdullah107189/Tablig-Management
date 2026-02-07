@@ -32,6 +32,7 @@ export type UserMinAggregateOutputType = {
   password: string | null
   globalRole: $Enums.GlobalRole | null
   isActive: boolean | null
+  isBlocked: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -44,6 +45,7 @@ export type UserMaxAggregateOutputType = {
   password: string | null
   globalRole: $Enums.GlobalRole | null
   isActive: boolean | null
+  isBlocked: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -56,6 +58,7 @@ export type UserCountAggregateOutputType = {
   password: number
   globalRole: number
   isActive: number
+  isBlocked: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -70,6 +73,7 @@ export type UserMinAggregateInputType = {
   password?: true
   globalRole?: true
   isActive?: true
+  isBlocked?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -82,6 +86,7 @@ export type UserMaxAggregateInputType = {
   password?: true
   globalRole?: true
   isActive?: true
+  isBlocked?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -94,6 +99,7 @@ export type UserCountAggregateInputType = {
   password?: true
   globalRole?: true
   isActive?: true
+  isBlocked?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -179,6 +185,7 @@ export type UserGroupByOutputType = {
   password: string
   globalRole: $Enums.GlobalRole
   isActive: boolean
+  isBlocked: boolean
   createdAt: Date
   updatedAt: Date
   _count: UserCountAggregateOutputType | null
@@ -212,6 +219,7 @@ export type UserWhereInput = {
   password?: Prisma.StringFilter<"User"> | string
   globalRole?: Prisma.EnumGlobalRoleFilter<"User"> | $Enums.GlobalRole
   isActive?: Prisma.BoolFilter<"User"> | boolean
+  isBlocked?: Prisma.BoolFilter<"User"> | boolean
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   memberships?: Prisma.MosqueMembershipListRelationFilter
@@ -233,6 +241,7 @@ export type UserOrderByWithRelationInput = {
   password?: Prisma.SortOrder
   globalRole?: Prisma.SortOrder
   isActive?: Prisma.SortOrder
+  isBlocked?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   memberships?: Prisma.MosqueMembershipOrderByRelationAggregateInput
@@ -257,6 +266,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   password?: Prisma.StringFilter<"User"> | string
   globalRole?: Prisma.EnumGlobalRoleFilter<"User"> | $Enums.GlobalRole
   isActive?: Prisma.BoolFilter<"User"> | boolean
+  isBlocked?: Prisma.BoolFilter<"User"> | boolean
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   memberships?: Prisma.MosqueMembershipListRelationFilter
@@ -278,6 +288,7 @@ export type UserOrderByWithAggregationInput = {
   password?: Prisma.SortOrder
   globalRole?: Prisma.SortOrder
   isActive?: Prisma.SortOrder
+  isBlocked?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
@@ -296,6 +307,7 @@ export type UserScalarWhereWithAggregatesInput = {
   password?: Prisma.StringWithAggregatesFilter<"User"> | string
   globalRole?: Prisma.EnumGlobalRoleWithAggregatesFilter<"User"> | $Enums.GlobalRole
   isActive?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
+  isBlocked?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
 }
@@ -308,6 +320,7 @@ export type UserCreateInput = {
   password: string
   globalRole?: $Enums.GlobalRole
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   memberships?: Prisma.MosqueMembershipCreateNestedManyWithoutUserInput
@@ -329,6 +342,7 @@ export type UserUncheckedCreateInput = {
   password: string
   globalRole?: $Enums.GlobalRole
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   memberships?: Prisma.MosqueMembershipUncheckedCreateNestedManyWithoutUserInput
@@ -350,6 +364,7 @@ export type UserUpdateInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   globalRole?: Prisma.EnumGlobalRoleFieldUpdateOperationsInput | $Enums.GlobalRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.MosqueMembershipUpdateManyWithoutUserNestedInput
@@ -371,6 +386,7 @@ export type UserUncheckedUpdateInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   globalRole?: Prisma.EnumGlobalRoleFieldUpdateOperationsInput | $Enums.GlobalRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.MosqueMembershipUncheckedUpdateManyWithoutUserNestedInput
@@ -392,6 +408,7 @@ export type UserCreateManyInput = {
   password: string
   globalRole?: $Enums.GlobalRole
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -404,6 +421,7 @@ export type UserUpdateManyMutationInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   globalRole?: Prisma.EnumGlobalRoleFieldUpdateOperationsInput | $Enums.GlobalRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -416,6 +434,7 @@ export type UserUncheckedUpdateManyInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   globalRole?: Prisma.EnumGlobalRoleFieldUpdateOperationsInput | $Enums.GlobalRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -438,6 +457,7 @@ export type UserCountOrderByAggregateInput = {
   password?: Prisma.SortOrder
   globalRole?: Prisma.SortOrder
   isActive?: Prisma.SortOrder
+  isBlocked?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -450,6 +470,7 @@ export type UserMaxOrderByAggregateInput = {
   password?: Prisma.SortOrder
   globalRole?: Prisma.SortOrder
   isActive?: Prisma.SortOrder
+  isBlocked?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -462,6 +483,7 @@ export type UserMinOrderByAggregateInput = {
   password?: Prisma.SortOrder
   globalRole?: Prisma.SortOrder
   isActive?: Prisma.SortOrder
+  isBlocked?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -616,6 +638,7 @@ export type UserCreateWithoutMembershipsInput = {
   password: string
   globalRole?: $Enums.GlobalRole
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   applications?: Prisma.MosqueApplicationCreateNestedManyWithoutApplicantInput
@@ -636,6 +659,7 @@ export type UserUncheckedCreateWithoutMembershipsInput = {
   password: string
   globalRole?: $Enums.GlobalRole
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   applications?: Prisma.MosqueApplicationUncheckedCreateNestedManyWithoutApplicantInput
@@ -661,6 +685,7 @@ export type UserCreateWithoutCreatedMembershipsInput = {
   password: string
   globalRole?: $Enums.GlobalRole
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   memberships?: Prisma.MosqueMembershipCreateNestedManyWithoutUserInput
@@ -681,6 +706,7 @@ export type UserUncheckedCreateWithoutCreatedMembershipsInput = {
   password: string
   globalRole?: $Enums.GlobalRole
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   memberships?: Prisma.MosqueMembershipUncheckedCreateNestedManyWithoutUserInput
@@ -706,6 +732,7 @@ export type UserCreateWithoutUpdatedMembershipsInput = {
   password: string
   globalRole?: $Enums.GlobalRole
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   memberships?: Prisma.MosqueMembershipCreateNestedManyWithoutUserInput
@@ -726,6 +753,7 @@ export type UserUncheckedCreateWithoutUpdatedMembershipsInput = {
   password: string
   globalRole?: $Enums.GlobalRole
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   memberships?: Prisma.MosqueMembershipUncheckedCreateNestedManyWithoutUserInput
@@ -762,6 +790,7 @@ export type UserUpdateWithoutMembershipsInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   globalRole?: Prisma.EnumGlobalRoleFieldUpdateOperationsInput | $Enums.GlobalRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   applications?: Prisma.MosqueApplicationUpdateManyWithoutApplicantNestedInput
@@ -782,6 +811,7 @@ export type UserUncheckedUpdateWithoutMembershipsInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   globalRole?: Prisma.EnumGlobalRoleFieldUpdateOperationsInput | $Enums.GlobalRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   applications?: Prisma.MosqueApplicationUncheckedUpdateManyWithoutApplicantNestedInput
@@ -813,6 +843,7 @@ export type UserUpdateWithoutCreatedMembershipsInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   globalRole?: Prisma.EnumGlobalRoleFieldUpdateOperationsInput | $Enums.GlobalRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.MosqueMembershipUpdateManyWithoutUserNestedInput
@@ -833,6 +864,7 @@ export type UserUncheckedUpdateWithoutCreatedMembershipsInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   globalRole?: Prisma.EnumGlobalRoleFieldUpdateOperationsInput | $Enums.GlobalRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.MosqueMembershipUncheckedUpdateManyWithoutUserNestedInput
@@ -864,6 +896,7 @@ export type UserUpdateWithoutUpdatedMembershipsInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   globalRole?: Prisma.EnumGlobalRoleFieldUpdateOperationsInput | $Enums.GlobalRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.MosqueMembershipUpdateManyWithoutUserNestedInput
@@ -884,6 +917,7 @@ export type UserUncheckedUpdateWithoutUpdatedMembershipsInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   globalRole?: Prisma.EnumGlobalRoleFieldUpdateOperationsInput | $Enums.GlobalRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.MosqueMembershipUncheckedUpdateManyWithoutUserNestedInput
@@ -904,6 +938,7 @@ export type UserCreateWithoutReviewedAccessRequestsInput = {
   password: string
   globalRole?: $Enums.GlobalRole
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   memberships?: Prisma.MosqueMembershipCreateNestedManyWithoutUserInput
@@ -924,6 +959,7 @@ export type UserUncheckedCreateWithoutReviewedAccessRequestsInput = {
   password: string
   globalRole?: $Enums.GlobalRole
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   memberships?: Prisma.MosqueMembershipUncheckedCreateNestedManyWithoutUserInput
@@ -949,6 +985,7 @@ export type UserCreateWithoutAccessRequestsInput = {
   password: string
   globalRole?: $Enums.GlobalRole
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   memberships?: Prisma.MosqueMembershipCreateNestedManyWithoutUserInput
@@ -969,6 +1006,7 @@ export type UserUncheckedCreateWithoutAccessRequestsInput = {
   password: string
   globalRole?: $Enums.GlobalRole
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   memberships?: Prisma.MosqueMembershipUncheckedCreateNestedManyWithoutUserInput
@@ -1005,6 +1043,7 @@ export type UserUpdateWithoutReviewedAccessRequestsInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   globalRole?: Prisma.EnumGlobalRoleFieldUpdateOperationsInput | $Enums.GlobalRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.MosqueMembershipUpdateManyWithoutUserNestedInput
@@ -1025,6 +1064,7 @@ export type UserUncheckedUpdateWithoutReviewedAccessRequestsInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   globalRole?: Prisma.EnumGlobalRoleFieldUpdateOperationsInput | $Enums.GlobalRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.MosqueMembershipUncheckedUpdateManyWithoutUserNestedInput
@@ -1056,6 +1096,7 @@ export type UserUpdateWithoutAccessRequestsInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   globalRole?: Prisma.EnumGlobalRoleFieldUpdateOperationsInput | $Enums.GlobalRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.MosqueMembershipUpdateManyWithoutUserNestedInput
@@ -1076,6 +1117,7 @@ export type UserUncheckedUpdateWithoutAccessRequestsInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   globalRole?: Prisma.EnumGlobalRoleFieldUpdateOperationsInput | $Enums.GlobalRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.MosqueMembershipUncheckedUpdateManyWithoutUserNestedInput
@@ -1096,6 +1138,7 @@ export type UserCreateWithoutCreatedMosquesInput = {
   password: string
   globalRole?: $Enums.GlobalRole
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   memberships?: Prisma.MosqueMembershipCreateNestedManyWithoutUserInput
@@ -1116,6 +1159,7 @@ export type UserUncheckedCreateWithoutCreatedMosquesInput = {
   password: string
   globalRole?: $Enums.GlobalRole
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   memberships?: Prisma.MosqueMembershipUncheckedCreateNestedManyWithoutUserInput
@@ -1141,6 +1185,7 @@ export type UserCreateWithoutUpdatedMosquesInput = {
   password: string
   globalRole?: $Enums.GlobalRole
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   memberships?: Prisma.MosqueMembershipCreateNestedManyWithoutUserInput
@@ -1161,6 +1206,7 @@ export type UserUncheckedCreateWithoutUpdatedMosquesInput = {
   password: string
   globalRole?: $Enums.GlobalRole
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   memberships?: Prisma.MosqueMembershipUncheckedCreateNestedManyWithoutUserInput
@@ -1197,6 +1243,7 @@ export type UserUpdateWithoutCreatedMosquesInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   globalRole?: Prisma.EnumGlobalRoleFieldUpdateOperationsInput | $Enums.GlobalRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.MosqueMembershipUpdateManyWithoutUserNestedInput
@@ -1217,6 +1264,7 @@ export type UserUncheckedUpdateWithoutCreatedMosquesInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   globalRole?: Prisma.EnumGlobalRoleFieldUpdateOperationsInput | $Enums.GlobalRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.MosqueMembershipUncheckedUpdateManyWithoutUserNestedInput
@@ -1248,6 +1296,7 @@ export type UserUpdateWithoutUpdatedMosquesInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   globalRole?: Prisma.EnumGlobalRoleFieldUpdateOperationsInput | $Enums.GlobalRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.MosqueMembershipUpdateManyWithoutUserNestedInput
@@ -1268,6 +1317,7 @@ export type UserUncheckedUpdateWithoutUpdatedMosquesInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   globalRole?: Prisma.EnumGlobalRoleFieldUpdateOperationsInput | $Enums.GlobalRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.MosqueMembershipUncheckedUpdateManyWithoutUserNestedInput
@@ -1288,6 +1338,7 @@ export type UserCreateWithoutApplicationsInput = {
   password: string
   globalRole?: $Enums.GlobalRole
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   memberships?: Prisma.MosqueMembershipCreateNestedManyWithoutUserInput
@@ -1308,6 +1359,7 @@ export type UserUncheckedCreateWithoutApplicationsInput = {
   password: string
   globalRole?: $Enums.GlobalRole
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   memberships?: Prisma.MosqueMembershipUncheckedCreateNestedManyWithoutUserInput
@@ -1333,6 +1385,7 @@ export type UserCreateWithoutReviewedApplicationsInput = {
   password: string
   globalRole?: $Enums.GlobalRole
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   memberships?: Prisma.MosqueMembershipCreateNestedManyWithoutUserInput
@@ -1353,6 +1406,7 @@ export type UserUncheckedCreateWithoutReviewedApplicationsInput = {
   password: string
   globalRole?: $Enums.GlobalRole
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   memberships?: Prisma.MosqueMembershipUncheckedCreateNestedManyWithoutUserInput
@@ -1389,6 +1443,7 @@ export type UserUpdateWithoutApplicationsInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   globalRole?: Prisma.EnumGlobalRoleFieldUpdateOperationsInput | $Enums.GlobalRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.MosqueMembershipUpdateManyWithoutUserNestedInput
@@ -1409,6 +1464,7 @@ export type UserUncheckedUpdateWithoutApplicationsInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   globalRole?: Prisma.EnumGlobalRoleFieldUpdateOperationsInput | $Enums.GlobalRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.MosqueMembershipUncheckedUpdateManyWithoutUserNestedInput
@@ -1440,6 +1496,7 @@ export type UserUpdateWithoutReviewedApplicationsInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   globalRole?: Prisma.EnumGlobalRoleFieldUpdateOperationsInput | $Enums.GlobalRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.MosqueMembershipUpdateManyWithoutUserNestedInput
@@ -1460,6 +1517,7 @@ export type UserUncheckedUpdateWithoutReviewedApplicationsInput = {
   password?: Prisma.StringFieldUpdateOperationsInput | string
   globalRole?: Prisma.EnumGlobalRoleFieldUpdateOperationsInput | $Enums.GlobalRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isBlocked?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   memberships?: Prisma.MosqueMembershipUncheckedUpdateManyWithoutUserNestedInput
@@ -1583,6 +1641,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   password?: boolean
   globalRole?: boolean
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   memberships?: boolean | Prisma.User$membershipsArgs<ExtArgs>
@@ -1605,6 +1664,7 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   password?: boolean
   globalRole?: boolean
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["user"]>
@@ -1617,6 +1677,7 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   password?: boolean
   globalRole?: boolean
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["user"]>
@@ -1629,11 +1690,12 @@ export type UserSelectScalar = {
   password?: boolean
   globalRole?: boolean
   isActive?: boolean
+  isBlocked?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "phone" | "email" | "password" | "globalRole" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "phone" | "email" | "password" | "globalRole" | "isActive" | "isBlocked" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   memberships?: boolean | Prisma.User$membershipsArgs<ExtArgs>
   applications?: boolean | Prisma.User$applicationsArgs<ExtArgs>
@@ -1670,6 +1732,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     password: string
     globalRole: $Enums.GlobalRole
     isActive: boolean
+    isBlocked: boolean
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["user"]>
@@ -2111,6 +2174,7 @@ export interface UserFieldRefs {
   readonly password: Prisma.FieldRef<"User", 'String'>
   readonly globalRole: Prisma.FieldRef<"User", 'GlobalRole'>
   readonly isActive: Prisma.FieldRef<"User", 'Boolean'>
+  readonly isBlocked: Prisma.FieldRef<"User", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"User", 'DateTime'>
 }

@@ -116,7 +116,7 @@ export const MosqueMembershipScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
   mosqueId: 'mosqueId',
-  role: 'role',
+  mosqueRole: 'mosqueRole',
   isActive: 'isActive',
   createdById: 'createdById',
   updatedById: 'updatedById',
@@ -187,6 +187,7 @@ export const UserScalarFieldEnum = {
   password: 'password',
   globalRole: 'globalRole',
   isActive: 'isActive',
+  isBlocked: 'isBlocked',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const

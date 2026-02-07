@@ -1,6 +1,7 @@
-import { Server } from "http";
-import app from "./app.js";
+
 import { prisma } from "../lib/prisma.js";
+import type { Server } from "http";
+import app from "./app.js";
 
 async function connectToDB() {
   try {

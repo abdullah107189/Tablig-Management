@@ -28,7 +28,7 @@ export type MosqueMembershipMinAggregateOutputType = {
   id: string | null
   userId: string | null
   mosqueId: string | null
-  role: $Enums.MosqueRole | null
+  mosqueRole: $Enums.MosqueRole | null
   isActive: boolean | null
   createdById: string | null
   updatedById: string | null
@@ -40,7 +40,7 @@ export type MosqueMembershipMaxAggregateOutputType = {
   id: string | null
   userId: string | null
   mosqueId: string | null
-  role: $Enums.MosqueRole | null
+  mosqueRole: $Enums.MosqueRole | null
   isActive: boolean | null
   createdById: string | null
   updatedById: string | null
@@ -52,7 +52,7 @@ export type MosqueMembershipCountAggregateOutputType = {
   id: number
   userId: number
   mosqueId: number
-  role: number
+  mosqueRole: number
   isActive: number
   createdById: number
   updatedById: number
@@ -66,7 +66,7 @@ export type MosqueMembershipMinAggregateInputType = {
   id?: true
   userId?: true
   mosqueId?: true
-  role?: true
+  mosqueRole?: true
   isActive?: true
   createdById?: true
   updatedById?: true
@@ -78,7 +78,7 @@ export type MosqueMembershipMaxAggregateInputType = {
   id?: true
   userId?: true
   mosqueId?: true
-  role?: true
+  mosqueRole?: true
   isActive?: true
   createdById?: true
   updatedById?: true
@@ -90,7 +90,7 @@ export type MosqueMembershipCountAggregateInputType = {
   id?: true
   userId?: true
   mosqueId?: true
-  role?: true
+  mosqueRole?: true
   isActive?: true
   createdById?: true
   updatedById?: true
@@ -149,11 +149,11 @@ export type MosqueMembershipAggregateArgs<ExtArgs extends runtime.Types.Extensio
 }
 
 export type GetMosqueMembershipAggregateType<T extends MosqueMembershipAggregateArgs> = {
-      [P in keyof T & keyof AggregateMosqueMembership]: P extends '_count' | 'count'
-    ? T[P] extends true
-      ? number
-      : Prisma.GetScalarType<T[P], AggregateMosqueMembership[P]>
-    : Prisma.GetScalarType<T[P], AggregateMosqueMembership[P]>
+  [P in keyof T & keyof AggregateMosqueMembership]: P extends '_count' | 'count'
+  ? T[P] extends true
+  ? number
+  : Prisma.GetScalarType<T[P], AggregateMosqueMembership[P]>
+  : Prisma.GetScalarType<T[P], AggregateMosqueMembership[P]>
 }
 
 
@@ -175,7 +175,7 @@ export type MosqueMembershipGroupByOutputType = {
   id: string
   userId: string
   mosqueId: string
-  role: $Enums.MosqueRole
+  mosqueRole: $Enums.MosqueRole
   isActive: boolean
   createdById: string | null
   updatedById: string | null
@@ -189,15 +189,15 @@ export type MosqueMembershipGroupByOutputType = {
 type GetMosqueMembershipGroupByPayload<T extends MosqueMembershipGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<MosqueMembershipGroupByOutputType, T['by']> &
-      {
-        [P in ((keyof T) & (keyof MosqueMembershipGroupByOutputType))]: P extends '_count'
-          ? T[P] extends boolean
-            ? number
-            : Prisma.GetScalarType<T[P], MosqueMembershipGroupByOutputType[P]>
-          : Prisma.GetScalarType<T[P], MosqueMembershipGroupByOutputType[P]>
-      }
-    >
+    {
+      [P in ((keyof T) & (keyof MosqueMembershipGroupByOutputType))]: P extends '_count'
+      ? T[P] extends boolean
+      ? number
+      : Prisma.GetScalarType<T[P], MosqueMembershipGroupByOutputType[P]>
+      : Prisma.GetScalarType<T[P], MosqueMembershipGroupByOutputType[P]>
+    }
   >
+>
 
 
 
@@ -208,7 +208,7 @@ export type MosqueMembershipWhereInput = {
   id?: Prisma.StringFilter<"MosqueMembership"> | string
   userId?: Prisma.StringFilter<"MosqueMembership"> | string
   mosqueId?: Prisma.StringFilter<"MosqueMembership"> | string
-  role?: Prisma.EnumMosqueRoleFilter<"MosqueMembership"> | $Enums.MosqueRole
+  mosqueRole?: Prisma.EnumMosqueRoleFilter<"MosqueMembership"> | $Enums.MosqueRole
   isActive?: Prisma.BoolFilter<"MosqueMembership"> | boolean
   createdById?: Prisma.StringNullableFilter<"MosqueMembership"> | string | null
   updatedById?: Prisma.StringNullableFilter<"MosqueMembership"> | string | null
@@ -224,7 +224,7 @@ export type MosqueMembershipOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   mosqueId?: Prisma.SortOrder
-  role?: Prisma.SortOrder
+  mosqueRole?: Prisma.SortOrder
   isActive?: Prisma.SortOrder
   createdById?: Prisma.SortOrderInput | Prisma.SortOrder
   updatedById?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -244,7 +244,7 @@ export type MosqueMembershipWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.MosqueMembershipWhereInput | Prisma.MosqueMembershipWhereInput[]
   userId?: Prisma.StringFilter<"MosqueMembership"> | string
   mosqueId?: Prisma.StringFilter<"MosqueMembership"> | string
-  role?: Prisma.EnumMosqueRoleFilter<"MosqueMembership"> | $Enums.MosqueRole
+  mosqueRole?: Prisma.EnumMosqueRoleFilter<"MosqueMembership"> | $Enums.MosqueRole
   isActive?: Prisma.BoolFilter<"MosqueMembership"> | boolean
   createdById?: Prisma.StringNullableFilter<"MosqueMembership"> | string | null
   updatedById?: Prisma.StringNullableFilter<"MosqueMembership"> | string | null
@@ -260,7 +260,7 @@ export type MosqueMembershipOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   mosqueId?: Prisma.SortOrder
-  role?: Prisma.SortOrder
+  mosqueRole?: Prisma.SortOrder
   isActive?: Prisma.SortOrder
   createdById?: Prisma.SortOrderInput | Prisma.SortOrder
   updatedById?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -278,7 +278,7 @@ export type MosqueMembershipScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"MosqueMembership"> | string
   userId?: Prisma.StringWithAggregatesFilter<"MosqueMembership"> | string
   mosqueId?: Prisma.StringWithAggregatesFilter<"MosqueMembership"> | string
-  role?: Prisma.EnumMosqueRoleWithAggregatesFilter<"MosqueMembership"> | $Enums.MosqueRole
+  mosqueRole?: Prisma.EnumMosqueRoleWithAggregatesFilter<"MosqueMembership"> | $Enums.MosqueRole
   isActive?: Prisma.BoolWithAggregatesFilter<"MosqueMembership"> | boolean
   createdById?: Prisma.StringNullableWithAggregatesFilter<"MosqueMembership"> | string | null
   updatedById?: Prisma.StringNullableWithAggregatesFilter<"MosqueMembership"> | string | null
@@ -288,7 +288,7 @@ export type MosqueMembershipScalarWhereWithAggregatesInput = {
 
 export type MosqueMembershipCreateInput = {
   id?: string
-  role?: $Enums.MosqueRole
+  mosqueRole?: $Enums.MosqueRole
   isActive?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -302,7 +302,7 @@ export type MosqueMembershipUncheckedCreateInput = {
   id?: string
   userId: string
   mosqueId: string
-  role?: $Enums.MosqueRole
+  mosqueRole?: $Enums.MosqueRole
   isActive?: boolean
   createdById?: string | null
   updatedById?: string | null
@@ -312,7 +312,7 @@ export type MosqueMembershipUncheckedCreateInput = {
 
 export type MosqueMembershipUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
+  mosqueRole?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -326,7 +326,7 @@ export type MosqueMembershipUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   mosqueId?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
+  mosqueRole?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updatedById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -338,7 +338,7 @@ export type MosqueMembershipCreateManyInput = {
   id?: string
   userId: string
   mosqueId: string
-  role?: $Enums.MosqueRole
+  mosqueRole?: $Enums.MosqueRole
   isActive?: boolean
   createdById?: string | null
   updatedById?: string | null
@@ -348,7 +348,7 @@ export type MosqueMembershipCreateManyInput = {
 
 export type MosqueMembershipUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
+  mosqueRole?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -358,7 +358,7 @@ export type MosqueMembershipUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   mosqueId?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
+  mosqueRole?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updatedById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -375,7 +375,7 @@ export type MosqueMembershipCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   mosqueId?: Prisma.SortOrder
-  role?: Prisma.SortOrder
+  mosqueRole?: Prisma.SortOrder
   isActive?: Prisma.SortOrder
   createdById?: Prisma.SortOrder
   updatedById?: Prisma.SortOrder
@@ -387,7 +387,7 @@ export type MosqueMembershipMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   mosqueId?: Prisma.SortOrder
-  role?: Prisma.SortOrder
+  mosqueRole?: Prisma.SortOrder
   isActive?: Prisma.SortOrder
   createdById?: Prisma.SortOrder
   updatedById?: Prisma.SortOrder
@@ -399,7 +399,7 @@ export type MosqueMembershipMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   mosqueId?: Prisma.SortOrder
-  role?: Prisma.SortOrder
+  mosqueRole?: Prisma.SortOrder
   isActive?: Prisma.SortOrder
   createdById?: Prisma.SortOrder
   updatedById?: Prisma.SortOrder
@@ -595,7 +595,7 @@ export type MosqueMembershipUncheckedUpdateManyWithoutUpdatedByNestedInput = {
 
 export type MosqueMembershipCreateWithoutMosqueInput = {
   id?: string
-  role?: $Enums.MosqueRole
+  mosqueRole?: $Enums.MosqueRole
   isActive?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -607,7 +607,7 @@ export type MosqueMembershipCreateWithoutMosqueInput = {
 export type MosqueMembershipUncheckedCreateWithoutMosqueInput = {
   id?: string
   userId: string
-  role?: $Enums.MosqueRole
+  mosqueRole?: $Enums.MosqueRole
   isActive?: boolean
   createdById?: string | null
   updatedById?: string | null
@@ -648,7 +648,7 @@ export type MosqueMembershipScalarWhereInput = {
   id?: Prisma.StringFilter<"MosqueMembership"> | string
   userId?: Prisma.StringFilter<"MosqueMembership"> | string
   mosqueId?: Prisma.StringFilter<"MosqueMembership"> | string
-  role?: Prisma.EnumMosqueRoleFilter<"MosqueMembership"> | $Enums.MosqueRole
+  mosqueRole?: Prisma.EnumMosqueRoleFilter<"MosqueMembership"> | $Enums.MosqueRole
   isActive?: Prisma.BoolFilter<"MosqueMembership"> | boolean
   createdById?: Prisma.StringNullableFilter<"MosqueMembership"> | string | null
   updatedById?: Prisma.StringNullableFilter<"MosqueMembership"> | string | null
@@ -658,7 +658,7 @@ export type MosqueMembershipScalarWhereInput = {
 
 export type MosqueMembershipCreateWithoutUserInput = {
   id?: string
-  role?: $Enums.MosqueRole
+  mosqueRole?: $Enums.MosqueRole
   isActive?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -670,7 +670,7 @@ export type MosqueMembershipCreateWithoutUserInput = {
 export type MosqueMembershipUncheckedCreateWithoutUserInput = {
   id?: string
   mosqueId: string
-  role?: $Enums.MosqueRole
+  mosqueRole?: $Enums.MosqueRole
   isActive?: boolean
   createdById?: string | null
   updatedById?: string | null
@@ -690,7 +690,7 @@ export type MosqueMembershipCreateManyUserInputEnvelope = {
 
 export type MosqueMembershipCreateWithoutCreatedByInput = {
   id?: string
-  role?: $Enums.MosqueRole
+  mosqueRole?: $Enums.MosqueRole
   isActive?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -703,7 +703,7 @@ export type MosqueMembershipUncheckedCreateWithoutCreatedByInput = {
   id?: string
   userId: string
   mosqueId: string
-  role?: $Enums.MosqueRole
+  mosqueRole?: $Enums.MosqueRole
   isActive?: boolean
   updatedById?: string | null
   createdAt?: Date | string
@@ -722,7 +722,7 @@ export type MosqueMembershipCreateManyCreatedByInputEnvelope = {
 
 export type MosqueMembershipCreateWithoutUpdatedByInput = {
   id?: string
-  role?: $Enums.MosqueRole
+  mosqueRole?: $Enums.MosqueRole
   isActive?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -735,7 +735,7 @@ export type MosqueMembershipUncheckedCreateWithoutUpdatedByInput = {
   id?: string
   userId: string
   mosqueId: string
-  role?: $Enums.MosqueRole
+  mosqueRole?: $Enums.MosqueRole
   isActive?: boolean
   createdById?: string | null
   createdAt?: Date | string
@@ -803,7 +803,7 @@ export type MosqueMembershipUpdateManyWithWhereWithoutUpdatedByInput = {
 export type MosqueMembershipCreateManyMosqueInput = {
   id?: string
   userId: string
-  role?: $Enums.MosqueRole
+  mosqueRole?: $Enums.MosqueRole
   isActive?: boolean
   createdById?: string | null
   updatedById?: string | null
@@ -813,7 +813,7 @@ export type MosqueMembershipCreateManyMosqueInput = {
 
 export type MosqueMembershipUpdateWithoutMosqueInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
+  mosqueRole?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -825,7 +825,7 @@ export type MosqueMembershipUpdateWithoutMosqueInput = {
 export type MosqueMembershipUncheckedUpdateWithoutMosqueInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
+  mosqueRole?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updatedById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -836,7 +836,7 @@ export type MosqueMembershipUncheckedUpdateWithoutMosqueInput = {
 export type MosqueMembershipUncheckedUpdateManyWithoutMosqueInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
+  mosqueRole?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updatedById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -847,7 +847,7 @@ export type MosqueMembershipUncheckedUpdateManyWithoutMosqueInput = {
 export type MosqueMembershipCreateManyUserInput = {
   id?: string
   mosqueId: string
-  role?: $Enums.MosqueRole
+  mosqueRole?: $Enums.MosqueRole
   isActive?: boolean
   createdById?: string | null
   updatedById?: string | null
@@ -859,7 +859,7 @@ export type MosqueMembershipCreateManyCreatedByInput = {
   id?: string
   userId: string
   mosqueId: string
-  role?: $Enums.MosqueRole
+  mosqueRole?: $Enums.MosqueRole
   isActive?: boolean
   updatedById?: string | null
   createdAt?: Date | string
@@ -870,7 +870,7 @@ export type MosqueMembershipCreateManyUpdatedByInput = {
   id?: string
   userId: string
   mosqueId: string
-  role?: $Enums.MosqueRole
+  mosqueRole?: $Enums.MosqueRole
   isActive?: boolean
   createdById?: string | null
   createdAt?: Date | string
@@ -879,7 +879,7 @@ export type MosqueMembershipCreateManyUpdatedByInput = {
 
 export type MosqueMembershipUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
+  mosqueRole?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -891,7 +891,7 @@ export type MosqueMembershipUpdateWithoutUserInput = {
 export type MosqueMembershipUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   mosqueId?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
+  mosqueRole?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updatedById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -902,7 +902,7 @@ export type MosqueMembershipUncheckedUpdateWithoutUserInput = {
 export type MosqueMembershipUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   mosqueId?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
+  mosqueRole?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   updatedById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -912,7 +912,7 @@ export type MosqueMembershipUncheckedUpdateManyWithoutUserInput = {
 
 export type MosqueMembershipUpdateWithoutCreatedByInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
+  mosqueRole?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -925,7 +925,7 @@ export type MosqueMembershipUncheckedUpdateWithoutCreatedByInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   mosqueId?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
+  mosqueRole?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   updatedById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -936,7 +936,7 @@ export type MosqueMembershipUncheckedUpdateManyWithoutCreatedByInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   mosqueId?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
+  mosqueRole?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   updatedById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -945,7 +945,7 @@ export type MosqueMembershipUncheckedUpdateManyWithoutCreatedByInput = {
 
 export type MosqueMembershipUpdateWithoutUpdatedByInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
+  mosqueRole?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -958,7 +958,7 @@ export type MosqueMembershipUncheckedUpdateWithoutUpdatedByInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   mosqueId?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
+  mosqueRole?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -969,7 +969,7 @@ export type MosqueMembershipUncheckedUpdateManyWithoutUpdatedByInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   mosqueId?: Prisma.StringFieldUpdateOperationsInput | string
-  role?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
+  mosqueRole?: Prisma.EnumMosqueRoleFieldUpdateOperationsInput | $Enums.MosqueRole
   isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdById?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -982,7 +982,7 @@ export type MosqueMembershipSelect<ExtArgs extends runtime.Types.Extensions.Inte
   id?: boolean
   userId?: boolean
   mosqueId?: boolean
-  role?: boolean
+  mosqueRole?: boolean
   isActive?: boolean
   createdById?: boolean
   updatedById?: boolean
@@ -998,7 +998,7 @@ export type MosqueMembershipSelectCreateManyAndReturn<ExtArgs extends runtime.Ty
   id?: boolean
   userId?: boolean
   mosqueId?: boolean
-  role?: boolean
+  mosqueRole?: boolean
   isActive?: boolean
   createdById?: boolean
   updatedById?: boolean
@@ -1014,7 +1014,7 @@ export type MosqueMembershipSelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
   id?: boolean
   userId?: boolean
   mosqueId?: boolean
-  role?: boolean
+  mosqueRole?: boolean
   isActive?: boolean
   createdById?: boolean
   updatedById?: boolean
@@ -1030,7 +1030,7 @@ export type MosqueMembershipSelectScalar = {
   id?: boolean
   userId?: boolean
   mosqueId?: boolean
-  role?: boolean
+  mosqueRole?: boolean
   isActive?: boolean
   createdById?: boolean
   updatedById?: boolean
@@ -1038,7 +1038,7 @@ export type MosqueMembershipSelectScalar = {
   updatedAt?: boolean
 }
 
-export type MosqueMembershipOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "mosqueId" | "role" | "isActive" | "createdById" | "updatedById" | "createdAt" | "updatedAt", ExtArgs["result"]["mosqueMembership"]>
+export type MosqueMembershipOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "mosqueId" | "mosqueRole" | "isActive" | "createdById" | "updatedById" | "createdAt" | "updatedAt", ExtArgs["result"]["mosqueMembership"]>
 export type MosqueMembershipInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   mosque?: boolean | Prisma.MosqueDefaultArgs<ExtArgs>
@@ -1070,7 +1070,7 @@ export type $MosqueMembershipPayload<ExtArgs extends runtime.Types.Extensions.In
     id: string
     userId: string
     mosqueId: string
-    role: $Enums.MosqueRole
+    mosqueRole: $Enums.MosqueRole
     isActive: boolean
     createdById: string | null
     updatedById: string | null
@@ -1348,10 +1348,10 @@ export interface MosqueMembershipDelegate<ExtArgs extends runtime.Types.Extensio
     args?: Prisma.Subset<T, MosqueMembershipCountArgs>,
   ): Prisma.PrismaPromise<
     T extends runtime.Types.Utils.Record<'select', any>
-      ? T['select'] extends true
-        ? number
-        : Prisma.GetScalarType<T['select'], MosqueMembershipCountAggregateOutputType>
-      : number
+    ? T['select'] extends true
+    ? number
+    : Prisma.GetScalarType<T['select'], MosqueMembershipCountAggregateOutputType>
+    : number
   >
 
   /**
@@ -1405,8 +1405,8 @@ export interface MosqueMembershipDelegate<ExtArgs extends runtime.Types.Extensio
       Prisma.Extends<'take', Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-      ? { orderBy: MosqueMembershipGroupByArgs['orderBy'] }
-      : { orderBy?: MosqueMembershipGroupByArgs['orderBy'] },
+    ? { orderBy: MosqueMembershipGroupByArgs['orderBy'] }
+    : { orderBy?: MosqueMembershipGroupByArgs['orderBy'] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
     ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
@@ -1417,49 +1417,49 @@ export interface MosqueMembershipDelegate<ExtArgs extends runtime.Types.Extensio
     ? `Error: "by" must not be empty.`
     : HavingValid extends Prisma.False
     ? {
-        [P in HavingFields]: P extends ByFields
-          ? never
-          : P extends string
-          ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-          : [
-              Error,
-              'Field ',
-              P,
-              ` in "having" needs to be provided in "by"`,
-            ]
-      }[HavingFields]
+      [P in HavingFields]: P extends ByFields
+      ? never
+      : P extends string
+      ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+      : [
+        Error,
+        'Field ',
+        P,
+        ` in "having" needs to be provided in "by"`,
+      ]
+    }[HavingFields]
     : 'take' extends Prisma.Keys<T>
     ? 'orderBy' extends Prisma.Keys<T>
-      ? ByValid extends Prisma.True
-        ? {}
-        : {
-            [P in OrderFields]: P extends ByFields
-              ? never
-              : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-          }[OrderFields]
-      : 'Error: If you provide "take", you also need to provide "orderBy"'
+    ? ByValid extends Prisma.True
+    ? {}
+    : {
+      [P in OrderFields]: P extends ByFields
+      ? never
+      : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+    }[OrderFields]
+    : 'Error: If you provide "take", you also need to provide "orderBy"'
     : 'skip' extends Prisma.Keys<T>
     ? 'orderBy' extends Prisma.Keys<T>
-      ? ByValid extends Prisma.True
-        ? {}
-        : {
-            [P in OrderFields]: P extends ByFields
-              ? never
-              : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-          }[OrderFields]
-      : 'Error: If you provide "skip", you also need to provide "orderBy"'
+    ? ByValid extends Prisma.True
+    ? {}
+    : {
+      [P in OrderFields]: P extends ByFields
+      ? never
+      : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+    }[OrderFields]
+    : 'Error: If you provide "skip", you also need to provide "orderBy"'
     : ByValid extends Prisma.True
     ? {}
     : {
-        [P in OrderFields]: P extends ByFields
-          ? never
-          : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-      }[OrderFields]
+      [P in OrderFields]: P extends ByFields
+      ? never
+      : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+    }[OrderFields]
   >(args: Prisma.SubsetIntersection<T, MosqueMembershipGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMosqueMembershipGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-/**
- * Fields of the MosqueMembership model
- */
-readonly fields: MosqueMembershipFieldRefs;
+  /**
+   * Fields of the MosqueMembership model
+   */
+  readonly fields: MosqueMembershipFieldRefs;
 }
 
 /**
@@ -1506,14 +1506,14 @@ export interface MosqueMembershipFieldRefs {
   readonly id: Prisma.FieldRef<"MosqueMembership", 'String'>
   readonly userId: Prisma.FieldRef<"MosqueMembership", 'String'>
   readonly mosqueId: Prisma.FieldRef<"MosqueMembership", 'String'>
-  readonly role: Prisma.FieldRef<"MosqueMembership", 'MosqueRole'>
+  readonly mosqueRole: Prisma.FieldRef<"MosqueMembership", 'MosqueRole'>
   readonly isActive: Prisma.FieldRef<"MosqueMembership", 'Boolean'>
   readonly createdById: Prisma.FieldRef<"MosqueMembership", 'String'>
   readonly updatedById: Prisma.FieldRef<"MosqueMembership", 'String'>
   readonly createdAt: Prisma.FieldRef<"MosqueMembership", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"MosqueMembership", 'DateTime'>
 }
-    
+
 
 // Custom InputTypes
 /**

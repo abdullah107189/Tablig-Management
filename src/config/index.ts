@@ -13,7 +13,7 @@ const config = {
   jwtRefreshSecret: process.env.JWT_REFRESH_SECRET as string,
   jwtRefreshExpires: process.env.JWT_REFRESH_EXPIRES as string,
 
-  saltRound: process.env.SALT_ROUND,
+  saltRound: process.env.SALT_ROUND as string | number,
   node_dev: process.env.NODE_ENV,
   cors_origin: process.env.CORS_ORIGIN,
 };

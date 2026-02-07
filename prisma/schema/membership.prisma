@@ -1,9 +1,9 @@
 model MosqueMembership {
-  id       String     @id @default(uuid())
-  userId   String
-  mosqueId String
-  role     MosqueRole @default(VIEWER)
-  isActive Boolean    @default(true)
+  id         String     @id @default(uuid())
+  userId     String
+  mosqueId   String
+  mosqueRole MosqueRole @default(VIEWER)
+  isActive   Boolean    @default(true)
 
   user   User   @relation(fields: [userId], references: [id])
   mosque Mosque @relation(fields: [mosqueId], references: [id])

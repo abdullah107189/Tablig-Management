@@ -6,6 +6,7 @@ model User {
   password   String
   globalRole GlobalRole @default(USER)
   isActive   Boolean    @default(true)
+  isBlocked  Boolean    @default(false)
 
   // direct relations
   memberships    MosqueMembership[]
