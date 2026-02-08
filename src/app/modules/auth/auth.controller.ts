@@ -21,17 +21,17 @@ const register = catchAsync(async (req: Request, res: Response) => {
     });
 });
 
-// const login = catchAsync(async (req: Request, res: Response) => {
-//     const result = await AuthServices.login(req.body);
-//     setAuthCookie(res, result.tokens);
+const login = catchAsync(async (req: Request, res: Response) => {
+    const result = await AuthServices.login(req.body);
+    setAuthCookie(res, result.tokens);
 
-//     sendResponse(res, {
-//         success: true,
-//         statusCode: httpStatus.OK,
-//         data: result.user,
-//         message: "Login successful",
-//     });
-// });
+    sendResponse(res, {
+        success: true,
+        statusCode: httpStatus.OK,
+        data: result.user,
+        message: "Login successful",
+    });
+});
 
 // const refresh = catchAsync(async (req: Request, res: Response) => {
 //     const refreshToken = (req.cookies?.refreshToken as string | undefined) || req.body?.refreshToken;
@@ -68,4 +68,4 @@ const register = catchAsync(async (req: Request, res: Response) => {
 // });
 
 // export const AuthControllers = { register, login, refresh, logout };
-export const AuthControllers = { register };
+export const AuthControllers = { register, login };

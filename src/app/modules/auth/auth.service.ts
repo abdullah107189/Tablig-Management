@@ -2,7 +2,7 @@
 import httpStatus from "http-status";
 import { prisma } from "../../../../lib/prisma.js";
 import AppError from "../../errorsHelpers.ts/AppError.js";
-import { hashPassword } from "./auth.password.js";
+import { hashPassword, verifyPassword } from "./auth.password.js";
 import { type User } from "../../../../prisma/generated/prisma/client.js";
 import { createTokens } from "../../utils/manageTokens.js";
 
@@ -30,25 +30,25 @@ const register = async (payload: User) => {
     return { user, tokens };
 };
 
-// const login = async (payload: LoginInput) => {
-//     const user = await prisma.user.findUnique({
-//         where: { email: payload.email },
-//         select: { id: true, email: true, phone: true, globalRole: true, isBlocked: true, name: true },
-//     });
+const login = async (payload: LoginInput) => {
+    const user = await prisma.user.findUnique({
+        where: { email: payload.email },
+        select: { id: true, email: true, phone: true, globalRole: true, isBlocked: true, name: true, password: true },
+    });
 
-//     if (!user) throw new AppError(httpStatus.UNAUTHORIZED, "Invalid credentials");
-//     if (user.isBlocked) throw new AppError(httpStatus.FORBIDDEN, "User is blocked");
+    if (!user) throw new AppError(httpStatus.UNAUTHORIZED, "Invalid credentials");
+    if (user.isBlocked) throw new AppError(httpStatus.FORBIDDEN, "User is blocked");
 
-//     const ok = await verifyPassword(payload.password, user.passwordHash);
-//     if (!ok) throw new AppError(httpStatus.UNAUTHORIZED, "Invalid credentials");
+    const ok = await verifyPassword(payload.password, user?.password);
+    if (!ok) throw new AppError(httpStatus.UNAUTHORIZED, "Invalid credentials");
 
-//     const tokens = createTokens(user);
+    const tokens = createTokens(user);
 
-//     // hide passwordHash in response
-//     const { passwordHash, ...safeUser } = user;
+    // hide passwordHash in response
+    const { password, ...safeUser } = user;
 
-//     return { user: safeUser, tokens };
-// };
+    return { user: safeUser, tokens };
+};
 
 // const refresh = async (refreshToken: string) => {
 //     const accessToken = await createNewAccessTokenWithRefreshToken(refreshToken);
@@ -67,4 +67,4 @@ const register = async (payload: User) => {
 // };
 
 // export const AuthServices = { register, login, refresh, logout };
-export const AuthServices = { register };
+export const AuthServices = { register, login };
