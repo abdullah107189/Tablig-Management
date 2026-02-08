@@ -149,11 +149,11 @@ export type MosqueMembershipAggregateArgs<ExtArgs extends runtime.Types.Extensio
 }
 
 export type GetMosqueMembershipAggregateType<T extends MosqueMembershipAggregateArgs> = {
-  [P in keyof T & keyof AggregateMosqueMembership]: P extends '_count' | 'count'
-  ? T[P] extends true
-  ? number
-  : Prisma.GetScalarType<T[P], AggregateMosqueMembership[P]>
-  : Prisma.GetScalarType<T[P], AggregateMosqueMembership[P]>
+      [P in keyof T & keyof AggregateMosqueMembership]: P extends '_count' | 'count'
+    ? T[P] extends true
+      ? number
+      : Prisma.GetScalarType<T[P], AggregateMosqueMembership[P]>
+    : Prisma.GetScalarType<T[P], AggregateMosqueMembership[P]>
 }
 
 
@@ -189,15 +189,15 @@ export type MosqueMembershipGroupByOutputType = {
 type GetMosqueMembershipGroupByPayload<T extends MosqueMembershipGroupByArgs> = Prisma.PrismaPromise<
   Array<
     Prisma.PickEnumerable<MosqueMembershipGroupByOutputType, T['by']> &
-    {
-      [P in ((keyof T) & (keyof MosqueMembershipGroupByOutputType))]: P extends '_count'
-      ? T[P] extends boolean
-      ? number
-      : Prisma.GetScalarType<T[P], MosqueMembershipGroupByOutputType[P]>
-      : Prisma.GetScalarType<T[P], MosqueMembershipGroupByOutputType[P]>
-    }
+      {
+        [P in ((keyof T) & (keyof MosqueMembershipGroupByOutputType))]: P extends '_count'
+          ? T[P] extends boolean
+            ? number
+            : Prisma.GetScalarType<T[P], MosqueMembershipGroupByOutputType[P]>
+          : Prisma.GetScalarType<T[P], MosqueMembershipGroupByOutputType[P]>
+      }
+    >
   >
->
 
 
 
@@ -1348,10 +1348,10 @@ export interface MosqueMembershipDelegate<ExtArgs extends runtime.Types.Extensio
     args?: Prisma.Subset<T, MosqueMembershipCountArgs>,
   ): Prisma.PrismaPromise<
     T extends runtime.Types.Utils.Record<'select', any>
-    ? T['select'] extends true
-    ? number
-    : Prisma.GetScalarType<T['select'], MosqueMembershipCountAggregateOutputType>
-    : number
+      ? T['select'] extends true
+        ? number
+        : Prisma.GetScalarType<T['select'], MosqueMembershipCountAggregateOutputType>
+      : number
   >
 
   /**
@@ -1405,8 +1405,8 @@ export interface MosqueMembershipDelegate<ExtArgs extends runtime.Types.Extensio
       Prisma.Extends<'take', Prisma.Keys<T>>
     >,
     OrderByArg extends Prisma.True extends HasSelectOrTake
-    ? { orderBy: MosqueMembershipGroupByArgs['orderBy'] }
-    : { orderBy?: MosqueMembershipGroupByArgs['orderBy'] },
+      ? { orderBy: MosqueMembershipGroupByArgs['orderBy'] }
+      : { orderBy?: MosqueMembershipGroupByArgs['orderBy'] },
     OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>,
     ByFields extends Prisma.MaybeTupleToUnion<T['by']>,
     ByValid extends Prisma.Has<ByFields, OrderFields>,
@@ -1417,49 +1417,49 @@ export interface MosqueMembershipDelegate<ExtArgs extends runtime.Types.Extensio
     ? `Error: "by" must not be empty.`
     : HavingValid extends Prisma.False
     ? {
-      [P in HavingFields]: P extends ByFields
-      ? never
-      : P extends string
-      ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-      : [
-        Error,
-        'Field ',
-        P,
-        ` in "having" needs to be provided in "by"`,
-      ]
-    }[HavingFields]
+        [P in HavingFields]: P extends ByFields
+          ? never
+          : P extends string
+          ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+          : [
+              Error,
+              'Field ',
+              P,
+              ` in "having" needs to be provided in "by"`,
+            ]
+      }[HavingFields]
     : 'take' extends Prisma.Keys<T>
     ? 'orderBy' extends Prisma.Keys<T>
-    ? ByValid extends Prisma.True
-    ? {}
-    : {
-      [P in OrderFields]: P extends ByFields
-      ? never
-      : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-    }[OrderFields]
-    : 'Error: If you provide "take", you also need to provide "orderBy"'
+      ? ByValid extends Prisma.True
+        ? {}
+        : {
+            [P in OrderFields]: P extends ByFields
+              ? never
+              : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+          }[OrderFields]
+      : 'Error: If you provide "take", you also need to provide "orderBy"'
     : 'skip' extends Prisma.Keys<T>
     ? 'orderBy' extends Prisma.Keys<T>
-    ? ByValid extends Prisma.True
-    ? {}
-    : {
-      [P in OrderFields]: P extends ByFields
-      ? never
-      : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-    }[OrderFields]
-    : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      ? ByValid extends Prisma.True
+        ? {}
+        : {
+            [P in OrderFields]: P extends ByFields
+              ? never
+              : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+          }[OrderFields]
+      : 'Error: If you provide "skip", you also need to provide "orderBy"'
     : ByValid extends Prisma.True
     ? {}
     : {
-      [P in OrderFields]: P extends ByFields
-      ? never
-      : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-    }[OrderFields]
+        [P in OrderFields]: P extends ByFields
+          ? never
+          : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+      }[OrderFields]
   >(args: Prisma.SubsetIntersection<T, MosqueMembershipGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMosqueMembershipGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the MosqueMembership model
-   */
-  readonly fields: MosqueMembershipFieldRefs;
+/**
+ * Fields of the MosqueMembership model
+ */
+readonly fields: MosqueMembershipFieldRefs;
 }
 
 /**
@@ -1513,7 +1513,7 @@ export interface MosqueMembershipFieldRefs {
   readonly createdAt: Prisma.FieldRef<"MosqueMembership", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"MosqueMembership", 'DateTime'>
 }
-
+    
 
 // Custom InputTypes
 /**

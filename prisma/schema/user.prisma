@@ -7,6 +7,7 @@ model User {
   globalRole GlobalRole @default(USER)
   isActive   Boolean    @default(true)
   isBlocked  Boolean    @default(false)
+  isVerified Boolean    @default(false)
 
   // direct relations
   memberships    MosqueMembership[]

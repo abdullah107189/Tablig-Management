@@ -1153,6 +1153,7 @@ export const UserScalarFieldEnum = {
   globalRole: 'globalRole',
   isActive: 'isActive',
   isBlocked: 'isBlocked',
+  isVerified: 'isVerified',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
